@@ -1,0 +1,164 @@
+
+<!-- saved from url=(0256)file:///C:/Users/Owner/Desktop/Hiroshi/AI%20Driven%20School/%E5%80%8B%E4%BA%BA%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E3%82%8B/%E3%83%90%E3%83%A9%E7%AE%A1%E7%90%86%E3%83%84%E3%83%BC%E3%83%AB/%EF%BC%94%E3%81%A4%E3%81%AE%E3%83%91%E3%83%BC%E3%83%88.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{padding:16px 20px 28px;max-width:680px;margin:0 auto}
+.part{margin-bottom:0}
+.part-row{display:flex;gap:0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.part-row:last-child{border-bottom:none}
+.part-label{width:88px;flex-shrink:0;padding:14px 12px;border-right:0.5px solid var(--color-border-tertiary);display:flex;flex-direction:column;justify-content:flex-start}
+.part-label-num{font-size:11px;font-weight:500;color:var(--color-text-secondary);margin-bottom:2px}
+.part-label-title{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.part-label-sub{font-size:10px;color:var(--color-text-secondary);margin-top:2px}
+.part-body{flex:1;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.card{border-radius:8px;padding:9px 12px;border:0.5px solid}
+.card-pg{background:#E1F5EE;border-color:#5DCAA5}
+.card-ai{background:#EEEDFE;border-color:#AFA9EC}
+.card-title{font-size:12px;font-weight:500;margin-bottom:4px}
+.card-title-pg{color:#085041}
+.card-title-ai{color:#3C3489}
+.card-rows{display:flex;flex-direction:column;gap:3px}
+.card-row{display:flex;gap:6px;align-items:flex-start}
+.trigger-badge{display:inline-block;font-size:9px;font-weight:500;padding:1px 6px;border-radius:10px;flex-shrink:0;margin-top:1px}
+.tb-daily{background:#EAF3DE;color:#27500A;border:0.5px solid #97C459}
+.tb-weekly{background:#FAEEDA;color:#633806;border:0.5px solid #EF9F27}
+.tb-alert{background:#FCEBEB;color:#A32D2D;border:0.5px solid #F09595}
+.tb-fb{background:#f1efe8;color:#5f5e5a;border:0.5px solid #b4b2a9}
+.card-text{font-size:11px;color:var(--color-text-secondary);line-height:1.6}
+.note{font-size:10px;color:var(--color-text-secondary);padding-left:2px;font-style:italic}
+.tag{display:inline-block;font-size:9px;font-weight:500;padding:1px 5px;border-radius:3px;margin-right:3px}
+.tag-pg{background:#E1F5EE;color:#085041}
+.tag-ai{background:#EEEDFE;color:#3C3489}
+.outer{border:0.5px solid var(--color-border-tertiary);border-radius:12px;overflow:hidden}
+</style>
+
+</head><body><div class="page">
+<div class="outer">
+
+<!-- ① トリガー -->
+<div class="part-row">
+  <div class="part-label">
+    <div class="part-label-num">①</div>
+    <div class="part-label-title">トリガー</div>
+    <div class="part-label-sub">タイミング</div>
+  </div>
+  <div class="part-body">
+    <div class="card card-pg">
+      <div class="card-title card-title-pg">プログラム　GitHub Actions スケジューラー</div>
+      <div class="card-rows">
+        <div class="card-row">
+          <span class="trigger-badge tb-daily">🌿 日報</span>
+          <span class="card-text">毎日朝7時に自動起動　→　観察促しプッシュ通知を送信</span>
+        </div>
+        <div class="card-row">
+          <span class="trigger-badge tb-weekly">📅 週次</span>
+          <span class="card-text">毎週月曜 深夜0時に自動起動　→　週次メッセージを生成・朝7時に送信</span>
+        </div>
+        <div class="card-row">
+          <span class="trigger-badge tb-alert">⚠️ 緊急</span>
+          <span class="card-text">ユーザーの観察入力を受信した瞬間に即起動（Webhook）</span>
+        </div>
+        <div class="card-row">
+          <span class="trigger-badge tb-fb">🔁 FB</span>
+          <span class="card-text">専門家の返信を受信した瞬間に即起動（Webhook）</span>
+        </div>
+      </div>
+    </div>
+    <div class="note">→ AIは不要。時計・受信イベントで動くだけ。</div>
+  </div>
+</div>
+
+<!-- ② ソース元 -->
+<div class="part-row">
+  <div class="part-label">
+    <div class="part-label-num">②</div>
+    <div class="part-label-title">ソース元</div>
+    <div class="part-label-sub">データ取得</div>
+  </div>
+  <div class="part-body">
+    <div class="card card-pg">
+      <div class="card-title card-title-pg">プログラム　データの収集・読み込み</div>
+      <div class="card-rows">
+        <div class="card-row"><span class="card-text">・天気API（気温・降水確率・湿度・風）を自動取得　東京</span></div>
+        <div class="card-row"><span class="card-text">・マスタースケジュールDB（5カテゴリ×12ヶ月）を読み込む</span></div>
+        <div class="card-row"><span class="card-text">・専門家対策集DB（病気・害虫・写真）を読み込む</span></div>
+        <div class="card-row"><span class="card-text">・月例コメント（集会後に入力）を読み込む</span></div>
+        <div class="card-row"><span class="card-text">・観察記録（会員の入力）を読み込む</span></div>
+      </div>
+    </div>
+    <div class="note">→ AIは不要。決まった場所から決まったデータを持ってくるだけ。</div>
+    <div class="card card-ai">
+      <div class="card-title card-title-ai">AI　異常キーワードの検知・意味の判断</div>
+      <div class="card-rows">
+        <div class="card-row"><span class="card-text">・「葉の裏に白い粉」→ うどんこ病の可能性と判断</span></div>
+        <div class="card-row"><span class="card-text">・テキストの具体性・深刻度を読んで緊急度を補正</span></div>
+      </div>
+    </div>
+    <div class="note">→ 人間の言葉の意味を理解する部分はAIにしかできない。</div>
+  </div>
+</div>
+
+<!-- ③ 処理 -->
+<div class="part-row">
+  <div class="part-label">
+    <div class="part-label-num">③</div>
+    <div class="part-label-title">処理</div>
+    <div class="part-label-sub">する場所</div>
+  </div>
+  <div class="part-body">
+    <div class="card card-pg">
+      <div class="card-title card-title-pg">プログラム　データの組み立て・受け渡し</div>
+      <div class="card-rows">
+        <div class="card-row"><span class="card-text">・観察記録＋天気＋DBを整理して、構造化プロンプトとしてAIに渡す</span></div>
+        <div class="card-row"><span class="card-text">・AIの返答（JSON）をLINE送信形式に整形する</span></div>
+      </div>
+    </div>
+    <div class="note">→ AIへ渡す前の下準備と、受け取った後の整形はプログラムの仕事。</div>
+    <div class="card card-ai">
+      <div class="card-title card-title-ai">AI　アドバイスの生成・文章の作成</div>
+      <div class="card-rows">
+        <div class="card-row"><span class="card-text">・状況を総合判断してワンポイントアドバイスを日本語で生成</span></div>
+        <div class="card-row"><span class="card-text">・写真の選定判断（対策集から該当画像を選ぶ）</span></div>
+        <div class="card-row"><span class="card-text">・出力のブレを防ぐためJSON形式で返答させる</span></div>
+      </div>
+    </div>
+    <div class="note">→「何を伝えるか」を考えて文章にする部分はAIの得意領域。</div>
+  </div>
+</div>
+
+<!-- ④ 届ける先 -->
+<div class="part-row">
+  <div class="part-label">
+    <div class="part-label-num">④</div>
+    <div class="part-label-title">届ける先</div>
+    <div class="part-label-sub">LINE配信</div>
+  </div>
+  <div class="part-body">
+    <div class="card card-pg">
+      <div class="card-title card-title-pg">プログラム　LINE Messaging APIで送信</div>
+      <div class="card-rows">
+        <div class="card-row">
+          <span class="trigger-badge tb-daily">🌿 日報</span>
+          <span class="card-text">個人LINEチャットへプッシュ通知</span>
+        </div>
+        <div class="card-row">
+          <span class="trigger-badge tb-weekly">📅 週次</span>
+          <span class="card-text">グループLINE＋個人へ配信 / 写真・テキストを組み合わせて送信</span>
+        </div>
+        <div class="card-row">
+          <span class="trigger-badge tb-alert">⚠️ 緊急</span>
+          <span class="card-text">個人LINEへ即時返信</span>
+        </div>
+        <div class="card-row">
+          <span class="trigger-badge tb-fb">🔁 FB</span>
+          <span class="card-text">専門家へDB更新完了を通知 / 次週配信に自動反映</span>
+        </div>
+      </div>
+    </div>
+    <div class="note">→ AIは不要。完成したメッセージを指定の宛先に届けるだけ。</div>
+  </div>
+</div>
+
+</div>
+</div>
+</body></html>
